@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Include Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel='stylesheet'
+        href='https://cdn-uicons.flaticon.com/2.2.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+
+
+    <style>
+        li i {
+            margin-right: 8px;
+            color: blue;
+        }
+
+
+
+
+        nav {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+        }
+
+        /* Custom styles for masonry layout */
+        main {
+            height: 90vh;
+            display: flex;
+            column-count: 2;
+            /* Set the number of columns */
+            column-gap: 1rem;
+            /* Set the gap between columns */
+        }
+
+        section {
+            break-inside: avoid;
+            /* Prevent sections from breaking inside columns */
+            margin-bottom: 1rem;
+            /* Add space between sections */
+            padding: 1rem;
+            /* Add padding to sections */
+        }
+
+        .con2 {
+            margin-bottom: 1rem;
+            /* Add space between divs within sections */
+            padding: 0.5rem;
+            /* Add padding to divs within sections */
+            border-radius: 8px;
+        }
+
+        section ul li {
+            margin-left: 18px;
+            margin-bottom: 11px;
+        }
+
+
+
+        .calendar {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .month {
+            background-color: #f9f9f9;
+            padding: 5px;
+            text-align: center;
+        }
+
+        .days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 1px;
+        }
+
+        .day {
+            padding: 3px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+
+        .today {
+            background-color: #e6f7ff;
+        }
+
+        .events {
+            flex: 1;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            flex-direction: row;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .upcoming-events {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .event {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .event .date {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 10px;
+        }
+
+        .event .event-text {
+            flex: 1;
+        }
+
+
+
+        @keyframes fillCompletion {
+            0% {
+                width: 0;
+            }
+
+            100% {
+                width: 76%;
+                /* Adjust this value to match the completion percentage */
+            }
+        }
+
+        .animate-bar {
+            animation: fillCompletion 2s ease-out;
+        }
+
+
+
+
+        @keyframes fillcompletion {
+            0% {
+                width: 0;
+            }
+
+            100% {
+                width: 76%;
+                /* Adjust this value to match the completion percentage */
+            }
+        }
+
+        .comp-bar {
+            animation: fillcompletion 4s ease-out;
+        }
+
+        @keyframes fillcompletionn {
+            0% {
+                width: 0;
+            }
+
+            100% {
+                width: 50%;
+                /* Adjust this value to match the completion percentage */
+            }
+        }
+
+        .compp-bar {
+            animation: fillcompletionn 4s ease-out;
+        }
+    </style>
+
+</head>
+
+<body class="bg-gray-200">
+    <nav class="h-20 bg-white text-black flex items-center justify-between px-6">
+        <ul class="flex space-x-4">
+            <li><a class="font-bold text-3xl pl-2 text-blue-700" href="#">LMS</a></li>
+        </ul>
+        <div class="flex items-center justify-between w-2/3">
+            <ul>
+                <li></i><a class="font-bold text-lg ml-20" href="#">Dashboard</a></li>
+            </ul>
+            <div class="flex items-center w-2/3 px-2 py-1 bg-gray-200 rounded-lg">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Search_Icon.svg/1200px-Search_Icon.svg.png"
+                    class="h-6 ml-2">
+                <input type="search" placeholder="Search Here.." class="w-full px-2 py-1 bg-gray-200 rounded">
+            </div>
+        </div>
+        <a href="#" class="flex items-center space-x-1">
+            <img src="https://yt3.googleusercontent.com/RDwJjyzPnyP7H9QhjgV1ozD178Hqk-BeJ2aYPqLaVPcYBFHOFeY3a0GpGEjwIOwpaConl6PH2g=s900-c-k-c0x00ffffff-no-rj"
+                class="h-8 w-8 rounded-full">
+            <span class="text-lg">Uday Sharma</span>
+        </a>
+    </nav>
+
+    <hr />
+
+
+    <main class="flex">
+
+
+        <section class="sidedashboard flex justify-between flex-col w-64 bg-white h-full">
+            <div>
+                <ul class="menu flex flex-col items-left text-l">
+                    <li><i class="fi fi-rr-dashboard"></i>Dashboard</li>
+                    <li><i class="fi fi-rr-e-learning"></i>Courses</li>
+                    <li><i class="fi fi-rr-customization-cogwheel"></i>Chapter</li>
+                    <li><i class="fi fi-rr-info"></i>Help</li>
+                    <li><i class="fi fi-rr-settings-sliders"></i>Settings</li>
+                </ul>
+            </div>
+
+
+
+            <div class="">
+                <ul class="text-l">
+                    <li><i class="fi fi-rr-interrogation"></i>FAQ</li>
+                    <li><i class="fi fi-rr-sign-out-alt"></i>Logout</li>
+                </ul>
+            </div>
+        </section>
+
+
+
+        <div class="content flex flex-row w-full justify-between">
+
+            <section class="w-full h-full flex flex-col justify-between">
+                <div class="coursename con2 h-1/6 bg-white flex items-center p-4 relative">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1024px-Unofficial_JavaScript_logo_2.svg.png"
+                        alt="JavaScript Logo" class="w-12 h-12 mr-4">
+                    <div class="flex ">
+                        <h3 class="text-xl font-semibold ml-2">JavaScript Course
+                            <div class="completion-ba bg-gray-200 h-2 mt-1 top-full left-0 right-0 style=" width:76%">
+                                <div class="completion-bar bg-blue-500 h-2 mt-1  top-full left-0 right-0"
+                                    style="width: 76%;"></div>
+                            </div>
+                        </h3>
+                        <div class="flex justify-between text-m text-gray-500 ml-20 mt-2">
+                            <span><i class="fi fi-rr-module ml-4"></i>4</span>
+                            <span><i class="fi fi-rr-file-pdf ml-4"></i>12</span>
+                            <span><i class="fi fi-rr-paper-plane ml-4"></i>19</span>
+
+                        </div>
+                        <a href="#"
+                            class="bg-blue-500 text-white font-semibold px-4 py-2 rounded-full absolute top-0 right-0 mt-2 mr-2 flex items-center">
+                            <i class="fi fi-rr-play mr-2 mt-1"></i>Resume
+                        </a>
+                    </div>
+                </div>
+
+                <div class="status con2 h-1/2 bg-white p-4">
+                    <div class="status-text font-semibold ml-1">Status</div>
+                    <div class="completion-boxes flex justify-between mt-4">
+                        <div class="lesson-box flex flex-col items-center w-1/3">
+                            <div
+                                class="icon bg-blue-500 text-white flex items-center justify-center rounded-full w-12 h-12 mb-2">
+                                L</div>
+                            <div class="completion-sevenfive bg-gray-200 w-3/4 h-2 rounded-full mb-2">
+                                <div class="completion-bar bg-blue-500 w-3/4 h-2 rounded-full mb-2"></div>
+                            </div>
+                            <div class="completion-text text-center">75%</div>
+                            <div class="completion-number">8 Lessons</div>
+                        </div>
+                        <div class="assignment-box flex flex-col items-center w-1/3">
+                            <div
+                                class="icon bg-green-500 text-white flex items-center justify-center rounded-full w-12 h-12 mb-2">
+                                A</div>
+                            <div class="completion-twofive bg-gray-200 w-3/4 h-2 rounded-full mb-2">
+                                <div class="completion-bar bg-green-500 w-1/4 h-2 rounded-full mb-2"></div>
+                            </div>
+                            <div class="completion-text text-center">25%</div>
+                            <div class="completion-number">5 Assignments</div>
+                        </div>
+                        <div class="test-box flex flex-col items-center w-1/3">
+                            <div
+                                class="icon bg-purple-500 text-white flex items-center justify-center rounded-full w-12 h-12 mb-2">
+                                T</div>
+                            <div class="completion-ninty bg-gray-200 w-3/4 h-2 rounded-full mb-2">
+                                <div class="completion-bar bg-purple-500 w-5/6 h-2 rounded-full mb-2"></div>
+                            </div>
+                            <div class="completion-text text-center">90%</div>
+                            <div class="completion-number">3 Tests</div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="Allcourses con2 h-1/2 bg-white p-4">
+                    <h3 class="text-lg font-semibold mb-4">My Courses</h3>
+                    <div class="course-grid">
+                        <!-- MERN Stack Course -->
+                        <div class="course flex items-center justify-between mb-4">
+                            <div class="course-logo w-12 h-12 flex items-center justify-center mr-4"><img
+                                    src="https://raw.githubusercontent.com/shahzaibkhalid/mern-app-generator/master/static/logo.png">
+                            </div>
+                            <div class="course-details flex-grow">
+                                <div class="course-name font-semibold">MERN Stack Course</div>
+                                <div class="course-description text-gray-500">Learn to build full-stack web applications
+                                    with the MERN stack.</div>
+                                <div class="course-extras flex justify-between mt-2">
+                                    <div
+                                        class="course-progress flex items-center compe-bar bg-gray-200 h-2 rounded-full mr-2 w-full">
+                                        <div class="comp-bar bg-blue-500 w-3/4 h-2 rounded-full mr-2"></div>
+                                        <div class="completion-text">75%</div>
+                                    </div>
+                                    <div class="course-buttons flex items-center">
+                                        <button class="btn btn-primary mr-2">Resume</button>
+                                        <button
+                                            class="btn btn-secondary bg-blue-400 text-white rounded p-1">Details</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- UI/UX Course -->
+                        <div class="course flex items-center justify-between mb-4">
+                            <div class="course-logo w-12 h-12 flex items-center justify-center mr-4"><img
+                                    src="https://i.pinimg.com/originals/74/13/eb/7413eb389b7360e1c6f96a8114995989.jpg">
+                            </div>
+                            <div class="course-details flex-grow">
+                                <div class="course-name font-semibold">UI/UX Course</div>
+                                <div class="course-description text-gray-500">Master the principles of User Interface
+                                    and
+                                    User Experience design.</div>
+                                <div class="course-extras flex justify-between mt-2">
+                                    <div
+                                        class="course-progress flex items-center compe-bar bg-gray-200 h-2 rounded-full mr-2 w-full">
+                                        <div class="compp-bar bg-blue-500 w-1/2 h-2 rounded-full mr-2"></div>
+                                        <div class="completion-text">50%</div>
+                                    </div>
+                                    <div class="course-buttons flex items-center">
+                                        <button class="btn btn-primary mr-2">Resume</button>
+                                        <button
+                                            class="btn btn-secondary bg-blue-400 text-white rounded p-1">Details</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Add more courses here -->
+                    </div>
+                </div>
+
+
+
+
+
+
+
+            </section>
+
+
+
+            <section class="-w-1/4">
+                <div class="calender con2 h-1/2 bg-white">
+                    <div class="month">
+                        <h2 style="background-color: blue; color: white">March 2024</h2>
+                    </div>
+                    <div class="days">
+                        <div class="day">Sun</div>
+                        <div class="day">Mon</div>
+                        <div class="day">Tue</div>
+                        <div class="day">Wed</div>
+                        <div class="day">Thu</div>
+                        <div class="day">Fri</div>
+                        <div class="day">Sat</div>
+                        <div class="day"></div>
+                        <div class="day"></div>
+                        <div class="day"></div>
+                        <div class="day"></div>
+                        <div class="day" style="background-color: #ffcc00; color: white;">1</div>
+                        <div class="day">2</div>
+                        <div class="day">3</div>
+                        <div class="day">4</div>
+                        <div class="day">5</div>
+                        <div class="day">6</div>
+                        <div class="day">7</div>
+                        <div class="day" style="background-color: #a37b31; color: #fff;">8</div>
+                        <div class="day">9</div>
+                        <div class="day" style="background-color: #a037ad; color: #fff;">10</div>
+                        <div class="day">11</div>
+                        <div class="day">12</div>
+                        <div class="day">13</div>
+                        <div class="day">14</div>
+                        <div class="day" style="background-color: #ff6699; color: #fff;">15</div>
+                        <div class="day">16</div>
+                        <div class="day">17</div>
+                        <div class="day">18</div>
+                        <div class="day">19</div>
+                        <div class="day">20</div>
+                        <div class="day">21</div>
+                        <div class="day">22</div>
+                        <div class="day" style="color: white; background-color: blue;">23</div>
+                        <div class="day">24</div>
+                        <div class="day">25</div>
+                        <div class="day">26</div>
+                        <div class="day">27</div>
+                        <div class="day">28</div>
+                        <div class="day">29</div>
+                        <div class="day" style="background-color: #66cc99; color: #fff;">30</div>
+                        <div class="day">31</div>
+                        <div class="day"></div>
+                        <div class="day"></div>
+                        <div class="day"></div>
+                        <div class="day"></div>
+                        <div class="day"></div>
+                        <div class="day"></div>
+                    </div>
+                </div>
+                <div class="events con2 h-1/2 bg-white">
+                    <h2 style="background-color: blue; color: white; margin-bottom: 13px; width: 100%;">Upcoming Events
+                    </h2>
+                    <ul class="upcoming-events">
+                        <li class="event">
+                            <div class="date" style="background-color: #ffcc00; color: #fff;">1</div>
+                            <div class="event-text">Tech Talk Series</div>
+                        </li>
+                        <li class="event">
+                            <div class="date" style="background-color: #ff6699; color: #fff;">15</div>
+                            <div class="event-text">Hackathon</div>
+                        </li>
+                        <li class="event">
+                            <div class="date" style="background-color: #66cc99; color: #fff;">30</div>
+                            <div class="event-text">Workshops</div>
+                        </li>
+
+                        <li class="event">
+                            <div class="date" style="background-color: #a37b31; color: #fff;">8</div>
+                            <div class="event-text">Networking Event</div>
+                        </li>
+
+                        <li class="event">
+                            <div class="date" style="background-color: #a037ad; color: #fff;">10</div>
+                            <div class="event-text">Coding Competition</div>
+                        </li>
+
+                    </ul>
+                </div>
+            </section>
+
+
+        </div>
+    </main>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const completionBar = document.querySelector('.completion-bar');
+            completionBar.classList.add('animate-bar');
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const completionBar = document.querySelector('.completion-sevenfive');
+            completionBar.classList.add('animate-bar');
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const completionBar = document.querySelector('.completion-twofive');
+            completionBar.classList.add('animate-bar');
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const completionBar = document.querySelector('.completion-ninty');
+            completionBar.classList.add('animate-bar');
+        });
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>
